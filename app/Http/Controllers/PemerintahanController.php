@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnggaranBidang;
+use App\Models\LaporanPertanggungjawaban;
+use App\Models\PeraturanDesa;
+use App\Models\PeraturanKepalaDesa;
 use App\Models\Setting;
 
 class PemerintahanController extends Controller
@@ -23,12 +26,16 @@ class PemerintahanController extends Controller
 
     public function peraturan()
     {
-        return view('pemerintahan.peraturan');
+        $peraturans = PeraturanDesa::orderByDesc('tanggal_ditetapkan')->paginate(8);
+
+        return view('pemerintahan.peraturan', compact('peraturans'));
     }
 
     public function perkades()
     {
-        return view('pemerintahan.perkades');
+        $perkades = PeraturanKepalaDesa::orderByDesc('tanggal_ditetapkan')->paginate(8);
+
+        return view('pemerintahan.perkades', compact('perkades'));
     }
 
     public function rpjmdes()
@@ -38,7 +45,9 @@ class PemerintahanController extends Controller
 
     public function lpj()
     {
-        return view('pemerintahan.lpj');
+        $lpjs = LaporanPertanggungjawaban::orderByDesc('tahun')->get();
+
+        return view('pemerintahan.lpj', compact('lpjs'));
     }
 
     public function program()

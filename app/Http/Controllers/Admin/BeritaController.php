@@ -42,18 +42,14 @@ class BeritaController extends Controller
         return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan.');
     }
 
-    public function edit($id)
+    public function edit(Berita $berita)
     {
-        $berita = Berita::findOrFail($id);
-
-        return view('admin.berita.form', compact('berita'));
+        return view('admin.berita.form', ['berita' => $berita]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Berita $berita)
     {
-        $berita = Berita::findOrFail($id);
-
-        $data = $this->validated($request);
+        $data = $this->validated($request, $berita->id);
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('berita', 'public');
@@ -65,18 +61,14 @@ class BeritaController extends Controller
 
         $berita->update($data);
 
-        return redirect()->route('admin.berita.index')
-            ->with('success', 'Berita berhasil diperbarui.');
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil diperbarui.');
     }
 
-   public function destroy($id)
+    public function destroy(Berita $berita)
     {
-        $berita = Berita::findOrFail($id);
-
         $berita->delete();
 
-        return redirect()->route('admin.berita.index')
-            ->with('success', 'Berita berhasil dihapus.');
+        return back()->with('success', 'Berita berhasil dihapus.');
     }
 
     private function validated(Request $request, $ignoreId = null): array

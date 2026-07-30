@@ -8,8 +8,8 @@
         @foreach([
             ['label' => 'Total Berita', 'value' => $stats['total_berita'], 'color' => 'from-blue-500 to-blue-600', 'icon' => 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v10a2 2 0 01-2 2z'],
             ['label' => 'Berita Terbit', 'value' => $stats['berita_published'], 'color' => 'from-primary-500 to-primary-600', 'icon' => 'M5 13l4 4L19 7'],
-            ['label' => 'Pengumuman', 'value' => $stats['total_pengumuman'], 'color' => 'from-amber-500 to-amber-600', 'icon' => 'M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z'],
-            ['label' => 'Agenda Mendatang', 'value' => $stats['total_agenda'], 'color' => 'from-purple-500 to-purple-600', 'icon' => 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'],
+            ['label' => 'Surat Belum Diproses', 'value' => $stats['surat_baru'], 'color' => 'from-amber-500 to-amber-600', 'icon' => 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'],
+            ['label' => 'Pengaduan Baru', 'value' => $stats['pengaduan_baru'], 'color' => 'from-red-500 to-red-600', 'icon' => 'M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M12 12a3 3 0 100-6 3 3 0 000 6z'],
             ['label' => 'Produk UMKM', 'value' => $stats['total_produk'], 'color' => 'from-rose-500 to-rose-600', 'icon' => 'M9 17V7a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2h-6a2 2 0 01-2-2z'],
         ] as $s)
             <div class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
@@ -72,6 +72,14 @@
                 <a href="{{ route('admin.agenda.create') }}" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 rounded-xl px-4 py-3 text-sm transition">
                     <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">+</span>
                     Tambah Agenda
+                </a>
+                <a href="{{ route('admin.surat.index') }}" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 rounded-xl px-4 py-3 text-sm transition">
+                    <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">→</span>
+                    Cek Surat Masuk
+                </a>
+                <a href="{{ route('admin.pengaduan.index') }}" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 rounded-xl px-4 py-3 text-sm transition">
+                    <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">→</span>
+                    Cek Pengaduan Masuk
                 </a>
                 <a href="{{ route('admin.produk.create') }}" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 rounded-xl px-4 py-3 text-sm transition">
                     <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">+</span>

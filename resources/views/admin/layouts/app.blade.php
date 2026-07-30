@@ -53,12 +53,58 @@
                 Agenda
             </a>
 
+            <p class="px-3 pt-5 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-primary-400/80">Layanan Warga</p>
+
+            @php
+                $suratBaru = \App\Models\SuratPengajuan::where('status', 'baru')->count();
+                $pengaduanBaru = \App\Models\Pengaduan::where('status', 'baru')->count();
+            @endphp
+
+            <a href="{{ route('admin.surat.index') }}"
+               class="flex items-center justify-between px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.surat.*') ? 'bg-white text-primary-800 font-semibold shadow-lg shadow-black/20' : 'text-primary-100 hover:bg-white/10' }}">
+                <span class="flex items-center gap-3">
+                    <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    Surat Masuk
+                </span>
+                @if($suratBaru > 0)
+                    <span class="bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">{{ $suratBaru }}</span>
+                @endif
+            </a>
+            <a href="{{ route('admin.pengaduan.index') }}"
+               class="flex items-center justify-between px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.pengaduan.*') ? 'bg-white text-primary-800 font-semibold shadow-lg shadow-black/20' : 'text-primary-100 hover:bg-white/10' }}">
+                <span class="flex items-center gap-3">
+                    <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M12 12a3 3 0 100-6 3 3 0 000 6z" /></svg>
+                    Pengaduan Masuk
+                </span>
+                @if($pengaduanBaru > 0)
+                    <span class="bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">{{ $pengaduanBaru }}</span>
+                @endif
+            </a>
+
             <p class="px-3 pt-5 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-primary-400/80">Ekonomi</p>
 
             <a href="{{ route('admin.produk.index') }}"
                class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.produk.*') ? 'bg-white text-primary-800 font-semibold shadow-lg shadow-black/20' : 'text-primary-100 hover:bg-white/10' }}">
                 <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2h-6a2 2 0 01-2-2z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7H5a2 2 0 00-2 2v8a2 2 0 002 2h4" /></svg>
                 Produk UMKM
+            </a>
+
+            <p class="px-3 pt-5 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-primary-400/80">Dokumen Legal</p>
+
+            <a href="{{ route('admin.perdes.index') }}"
+               class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.perdes.*') ? 'bg-white text-primary-800 font-semibold shadow-lg shadow-black/20' : 'text-primary-100 hover:bg-white/10' }}">
+                <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v10a2 2 0 01-2 2z" /></svg>
+                Perdes
+            </a>
+            <a href="{{ route('admin.perkades.index') }}"
+               class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.perkades.*') ? 'bg-white text-primary-800 font-semibold shadow-lg shadow-black/20' : 'text-primary-100 hover:bg-white/10' }}">
+                <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v10a2 2 0 01-2 2z" /></svg>
+                Peraturan Kepala Desa
+            </a>
+            <a href="{{ route('admin.lpj.index') }}"
+               class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.lpj.*') ? 'bg-white text-primary-800 font-semibold shadow-lg shadow-black/20' : 'text-primary-100 hover:bg-white/10' }}">
+                <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                LPPD / LPJ
             </a>
 
             <p class="px-3 pt-5 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-primary-400/80">Keuangan</p>

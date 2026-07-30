@@ -14,6 +14,11 @@ use App\Http\Controllers\Admin\PengumumanController as AdminPengumumanController
 use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
 use App\Http\Controllers\Admin\ProdukController as AdminProdukController;
 use App\Http\Controllers\Admin\StatistikController as AdminStatistikController;
+use App\Http\Controllers\Admin\SuratController as AdminSuratController;
+use App\Http\Controllers\Admin\PengaduanController as AdminPengaduanController;
+use App\Http\Controllers\Admin\PeraturanDesaController as AdminPeraturanDesaController;
+use App\Http\Controllers\Admin\PerkadesController as AdminPerkadesController;
+use App\Http\Controllers\Admin\LpjController as AdminLpjController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +61,9 @@ Route::prefix('pemerintahan')->group(function () {
 */
 Route::prefix('layanan')->group(function () {
     Route::get('/surat-pengantar', [LayananController::class, 'surat'])->name('surat');
+    Route::post('/surat-pengantar', [LayananController::class, 'suratStore'])->name('surat.store');
     Route::get('/pengaduan', [LayananController::class, 'pengaduan'])->name('pengaduan');
+    Route::post('/pengaduan', [LayananController::class, 'pengaduanStore'])->name('pengaduan.store');
     Route::get('/ktp-kk-akta', [LayananController::class, 'ktp'])->name('ktp');
     Route::get('/alur-layanan', [LayananController::class, 'alur'])->name('alur');
 });
@@ -99,6 +106,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('pengumuman', AdminPengumumanController::class)->except('show');
         Route::resource('agenda', AdminAgendaController::class)->except('show');
         Route::resource('produk', AdminProdukController::class)->except('show');
+
+        // Layanan Warga (surat & pengaduan masuk dari publik)
+        Route::resource('surat', AdminSuratController::class)->only(['index', 'edit', 'update', 'destroy']);
+        Route::resource('pengaduan', AdminPengaduanController::class)->only(['index', 'edit', 'update', 'destroy']);
+
+        // Dokumen Legal
+        Route::resource('perdes', AdminPeraturanDesaController::class)->except('show');
+        Route::resource('perkades', AdminPerkadesController::class)->except('show');
+        Route::resource('lpj', AdminLpjController::class)->except('show');
 
         Route::get('/statistik', [AdminStatistikController::class, 'edit'])->name('statistik.edit');
         Route::put('/statistik', [AdminStatistikController::class, 'update'])->name('statistik.update');
