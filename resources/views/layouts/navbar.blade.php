@@ -53,7 +53,7 @@
                             <a href="{{ route('rpjmdes') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">RPJM Des</a>
                             <a href="{{ route('peraturan') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">Perdes</a>
                             <a href="{{ route('perkades') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">Peraturan Kepala Desa</a>
-                            <a href="{{ route('apbdes') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">APBDes P</a>
+                            <a href="{{ route('apbdes') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">APBDes</a>
                             <a href="{{ route('lpj') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">LPPD/LPJ</a>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
             <a href="{{ route('rpjmdes') }}" class="block py-2 pl-2 text-gray-700">RPJM Des</a>
             <a href="{{ route('peraturan') }}" class="block py-2 pl-2 text-gray-700">Perdes</a>
             <a href="{{ route('perkades') }}" class="block py-2 pl-2 text-gray-700">Peraturan Kepala Desa</a>
-            <a href="{{ route('apbdes') }}" class="block py-2 pl-2 text-gray-700">APBDes P</a>
+            <a href="{{ route('apbdes') }}" class="block py-2 pl-2 text-gray-700">APBDes</a>
             <a href="{{ route('lpj') }}" class="block py-2 pl-2 text-gray-700">LPPD/LPJ</a>
             <p class="pt-2 text-xs uppercase tracking-wide text-gray-400">Layanan Publik</p>
             <a href="{{ route('surat') }}" class="block py-2 pl-2 text-gray-700">Surat Pengantar</a>

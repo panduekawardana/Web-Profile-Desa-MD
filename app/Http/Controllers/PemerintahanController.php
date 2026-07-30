@@ -6,6 +6,7 @@ use App\Models\AnggaranBidang;
 use App\Models\LaporanPertanggungjawaban;
 use App\Models\PeraturanDesa;
 use App\Models\PeraturanKepalaDesa;
+use App\Models\RealisasiBulanan;
 use App\Models\Setting;
 
 class PemerintahanController extends Controller
@@ -21,7 +22,18 @@ class PemerintahanController extends Controller
 
         $anggaranBidangs = AnggaranBidang::orderBy('urutan')->get();
 
-        return view('pemerintahan.apbdes', compact('settings', 'anggaranBidangs'));
+        $realisasiBulanans = RealisasiBulanan::orderByDesc('tahun')->orderByDesc('bulan')->get()
+            ->map(function ($b) {
+                return [
+                    'label' => RealisasiBulanan::namaBulan($b->bulan) . ' ' . $b->tahun,
+                    'total_pendapatan' => $b->total_pendapatan,
+                    'realisasi_anggaran' => $b->realisasi_anggaran,
+                    'sisa_anggaran' => $b->sisa_anggaran,
+                    'serapan_belanja' => $b->serapan_belanja,
+                ];
+            })->values();
+
+        return view('pemerintahan.apbdes', compact('settings', 'anggaranBidangs', 'realisasiBulanans'));
     }
 
     public function peraturan()

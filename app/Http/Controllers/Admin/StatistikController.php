@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AnggaranBidang;
+use App\Models\RealisasiBulanan;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -24,8 +25,9 @@ class StatistikController extends Controller
         ];
 
         $anggaranBidangs = AnggaranBidang::orderBy('urutan')->get();
+        $realisasiBulanans = RealisasiBulanan::orderByDesc('tahun')->orderByDesc('bulan')->get();
 
-        return view('admin.statistik.edit', compact('settings', 'anggaranBidangs'));
+        return view('admin.statistik.edit', compact('settings', 'anggaranBidangs', 'realisasiBulanans'));
     }
 
     public function update(Request $request)
@@ -71,5 +73,31 @@ class StatistikController extends Controller
         $bidang->delete();
 
         return back()->with('success', 'Bidang anggaran berhasil dihapus.');
+    }
+
+    public function storeBulanan(Request $request)
+    {
+        $data = $request->validate([
+            'bulan' => 'required|integer|min:1|max:12',
+            'tahun' => 'required|integer|min:2000|max:2100',
+            'total_pendapatan' => 'required|string|max:50',
+            'realisasi_anggaran' => 'required|string|max:50',
+            'sisa_anggaran' => 'required|string|max:50',
+            'serapan_belanja' => 'required|string|max:50',
+        ]);
+
+        RealisasiBulanan::updateOrCreate(
+            ['bulan' => $data['bulan'], 'tahun' => $data['tahun']],
+            $data
+        );
+
+        return back()->with('success', 'Data bulanan berhasil disimpan.');
+    }
+
+    public function destroyBulanan(RealisasiBulanan $bulanan)
+    {
+        $bulanan->delete();
+
+        return back()->with('success', 'Data bulanan berhasil dihapus.');
     }
 }

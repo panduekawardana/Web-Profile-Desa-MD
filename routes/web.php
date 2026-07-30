@@ -120,5 +120,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('/statistik', [AdminStatistikController::class, 'update'])->name('statistik.update');
         Route::post('/statistik/bidang', [AdminStatistikController::class, 'storeBidang'])->name('statistik.bidang.store');
         Route::delete('/statistik/bidang/{bidang}', [AdminStatistikController::class, 'destroyBidang'])->name('statistik.bidang.destroy');
+        Route::post('/statistik/bulanan', [AdminStatistikController::class, 'storeBulanan'])->name('statistik.bulanan.store');
+        Route::delete('/statistik/bulanan/{bulanan}', [AdminStatistikController::class, 'destroyBulanan'])->name('statistik.bulanan.destroy');
     });
 });

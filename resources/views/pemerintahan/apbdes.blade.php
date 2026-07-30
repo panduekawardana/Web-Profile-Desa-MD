@@ -14,33 +14,81 @@
 
     <section class="max-w-7xl mx-auto px-6 lg:px-10 py-16">
 
-        <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
             <h2 class="text-2xl font-bold text-gray-900">APBDes Tahun Anggaran 2024</h2>
-            <div class="bg-gray-100 rounded-lg p-1 flex text-sm font-medium">
-                <button class="px-4 py-1.5 rounded-md bg-white shadow text-gray-900">Tahunan</button>
-                <button class="px-4 py-1.5 rounded-md text-gray-500">Bulanan</button>
+            <div class="flex items-center gap-3">
+                <div class="bg-gray-100 rounded-lg p-1 flex text-sm font-medium">
+                    <button type="button" data-periode="tahunan" class="periode-btn px-4 py-1.5 rounded-md bg-white shadow text-gray-900 transition">Tahunan</button>
+                    <button type="button" data-periode="bulanan" class="periode-btn px-4 py-1.5 rounded-md text-gray-500 transition">Bulanan</button>
+                </div>
+                <select id="bulan-select" class="hidden border border-gray-200 rounded-lg text-sm px-3 py-2">
+                    @forelse($realisasiBulanans as $i => $b)
+                        <option value="{{ $i }}">{{ $b['label'] }}</option>
+                    @empty
+                        <option value="">Belum ada data</option>
+                    @endforelse
+                </select>
             </div>
         </div>
 
         {{-- Stat cards --}}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" id="stat-cards">
             @foreach([
-                ['label' => 'Total Pendapatan', 'value' => $settings['total_pendapatan'], 'delta' => null],
-                ['label' => 'Realisasi Anggaran', 'value' => $settings['realisasi_anggaran'], 'delta' => null],
-                ['label' => 'Sisa Anggaran', 'value' => $settings['sisa_anggaran'], 'delta' => null],
-                ['label' => 'Serapan Belanja', 'value' => $settings['serapan_belanja'], 'delta' => null],
+                ['label' => 'Total Pendapatan', 'field' => 'total_pendapatan', 'value' => $settings['total_pendapatan']],
+                ['label' => 'Realisasi Anggaran', 'field' => 'realisasi_anggaran', 'value' => $settings['realisasi_anggaran']],
+                ['label' => 'Sisa Anggaran', 'field' => 'sisa_anggaran', 'value' => $settings['sisa_anggaran']],
+                ['label' => 'Serapan Belanja', 'field' => 'serapan_belanja', 'value' => $settings['serapan_belanja']],
             ] as $s)
                 <div class="bg-white border border-gray-100 rounded-xl p-5">
-                    <div class="flex items-center justify-between">
-                        <p class="text-xs text-gray-400 font-semibold">{{ $s['label'] }}</p>
-                        @if($s['delta'])
-                            <span class="text-[11px] font-bold text-primary-700 bg-primary-50 px-2 py-0.5 rounded-full">{{ $s['delta'] }}</span>
-                        @endif
-                    </div>
-                    <p class="text-xl font-bold text-gray-900 mt-2">{{ $s['value'] }}</p>
+                    <p class="text-xs text-gray-400 font-semibold">{{ $s['label'] }}</p>
+                    <p class="text-xl font-bold text-gray-900 mt-2" data-field="{{ $s['field'] }}">{{ $s['value'] }}</p>
                 </div>
             @endforeach
         </div>
+
+        <script>
+            (function () {
+                const dataTahunan = @json($settings);
+                const dataBulanan = @json($realisasiBulanans);
+                const fields = ['total_pendapatan', 'realisasi_anggaran', 'sisa_anggaran', 'serapan_belanja'];
+                const btns = document.querySelectorAll('.periode-btn');
+                const bulanSelect = document.getElementById('bulan-select');
+
+                function applyData(data) {
+                    fields.forEach(function (f) {
+                        const el = document.querySelector('#stat-cards [data-field="' + f + '"]');
+                        if (el) el.textContent = (data && data[f]) ? data[f] : '-';
+                    });
+                }
+
+                btns.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        btns.forEach(function (b) {
+                            b.classList.remove('bg-white', 'shadow', 'text-gray-900');
+                            b.classList.add('text-gray-500');
+                        });
+                        btn.classList.add('bg-white', 'shadow', 'text-gray-900');
+                        btn.classList.remove('text-gray-500');
+
+                        if (btn.dataset.periode === 'bulanan') {
+                            bulanSelect.classList.remove('hidden');
+                            if (dataBulanan.length > 0) {
+                                applyData(dataBulanan[bulanSelect.value || 0]);
+                            } else {
+                                applyData(null);
+                            }
+                        } else {
+                            bulanSelect.classList.add('hidden');
+                            applyData(dataTahunan);
+                        }
+                    });
+                });
+
+                bulanSelect?.addEventListener('change', function () {
+                    applyData(dataBulanan[this.value]);
+                });
+            })();
+        </script>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 

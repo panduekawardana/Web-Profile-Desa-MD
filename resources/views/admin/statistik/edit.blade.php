@@ -101,4 +101,63 @@
         </div>
     </div>
 
+    {{-- Data Bulanan --}}
+    <div class="bg-white border border-gray-100 rounded-2xl p-8 mt-6">
+        <h2 class="font-bold text-gray-900 mb-1">Data Realisasi Bulanan</h2>
+        <p class="text-xs text-gray-400 mb-6">Isi data ini supaya toggle "Bulanan" di halaman APBDes publik bisa menampilkan angka per bulan.</p>
+
+        <div class="bg-white border border-gray-100 rounded-xl overflow-hidden mb-6">
+            <table class="w-full text-sm">
+                <thead class="bg-gray-50 text-left text-gray-500">
+                    <tr>
+                        <th class="px-4 py-3 font-semibold">Bulan</th>
+                        <th class="px-4 py-3 font-semibold">Tahun</th>
+                        <th class="px-4 py-3 font-semibold">Pendapatan</th>
+                        <th class="px-4 py-3 font-semibold">Realisasi</th>
+                        <th class="px-4 py-3 font-semibold">Sisa</th>
+                        <th class="px-4 py-3 font-semibold">Serapan</th>
+                        <th class="px-4 py-3 font-semibold text-right">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    @forelse($realisasiBulanans as $b)
+                        <tr class="hover:bg-gray-50/60">
+                            <td class="px-4 py-3 font-medium text-gray-800">{{ \App\Models\RealisasiBulanan::namaBulan($b->bulan) }}</td>
+                            <td class="px-4 py-3 text-gray-500">{{ $b->tahun }}</td>
+                            <td class="px-4 py-3 text-gray-500">{{ $b->total_pendapatan }}</td>
+                            <td class="px-4 py-3 text-gray-500">{{ $b->realisasi_anggaran }}</td>
+                            <td class="px-4 py-3 text-gray-500">{{ $b->sisa_anggaran }}</td>
+                            <td class="px-4 py-3 text-gray-500">{{ $b->serapan_belanja }}</td>
+                            <td class="px-4 py-3 text-right">
+                                <form action="{{ route('admin.statistik.bulanan.destroy', $b) }}" method="POST" onsubmit="return confirm('Hapus data bulan ini?')">
+                                    @csrf @method('DELETE')
+                                    <button class="text-red-600 text-xs font-semibold hover:underline">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td colspan="7" class="px-4 py-6 text-center text-gray-400">Belum ada data bulanan.</td></tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        <form method="POST" action="{{ route('admin.statistik.bulanan.store') }}" class="grid grid-cols-2 md:grid-cols-6 gap-3">
+            @csrf
+            <select name="bulan" required class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                @foreach(['1'=>'Januari','2'=>'Februari','3'=>'Maret','4'=>'April','5'=>'Mei','6'=>'Juni','7'=>'Juli','8'=>'Agustus','9'=>'September','10'=>'Oktober','11'=>'November','12'=>'Desember'] as $val => $label)
+                    <option value="{{ $val }}" {{ now()->month == $val ? 'selected' : '' }}>{{ $label }}</option>
+                @endforeach
+            </select>
+            <input type="number" name="tahun" value="{{ now()->year }}" required class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
+            <input type="text" name="total_pendapatan" placeholder="Pendapatan" required class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
+            <input type="text" name="realisasi_anggaran" placeholder="Realisasi" required class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
+            <input type="text" name="sisa_anggaran" placeholder="Sisa" required class="border border-gray-200 rounded-lg px-3 py-2 text-sm">
+            <div class="flex gap-2">
+                <input type="text" name="serapan_belanja" placeholder="Serapan %" required class="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                <button class="bg-gray-900 text-white text-sm font-semibold px-4 py-2 rounded-lg whitespace-nowrap">+ Simpan</button>
+            </div>
+        </form>
+    </div>
+
 @endsection
