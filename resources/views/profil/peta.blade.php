@@ -21,7 +21,7 @@
                     class="w-full h-full"
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps?q=Jawa+Timur,+Indonesia&output=embed">
+                    src="https://www.google.com/maps?q=87XJ%2B9C2+Alung,+Desa+Mekar+Damai,+Kec.+Praya,+Kabupaten+Lombok+Tengah,+Nusa+Tenggara+Barat&z=16&output=embed">
                 </iframe>
             </div>
 
@@ -50,8 +50,10 @@
             <h3 class="text-xl font-bold text-gray-900 mb-6">Daftar Dusun</h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 @foreach([
-                    'Mekar Wangi', 'Sumber Asri', 'Tegal Rejo', 'Sido Mulyo',
-                    'Karang Tengah', 'Bukit Damai', 'Sumber Rejeki', 'Argo Mulyo',
+                    'Manggong Daye', 'Montong Sejagat', 'Bebie Baru', 'Lendang Batah Bat',
+                    'Karang Lebah', 'Aik Gereng', 'Lendang Batah Lauq', 'Alung',
+                    'Anak nao','Bebie Daye','bebie timuq','bebie lauq','mertak gawah',
+                    'lendang batah','Manggong Lauq'
                 ] as $dusun)
                     <div class="border border-gray-100 rounded-xl p-4 text-center hover:border-primary-300 transition">
                         <p class="font-semibold text-gray-800 text-sm">Dusun {{ $dusun }}</p>

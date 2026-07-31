@@ -1,5 +1,18 @@
-<footer class="bg-primary-900 text-primary-100 mt-24">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
+<footer class="relative text-primary-100 mt-24 overflow-hidden">
+
+    {{-- Peta sebagai background --}}
+    <div class="absolute inset-0">
+        <iframe
+            src="https://www.google.com/maps?q=87XJ%2B9C2+Alung,+Desa+Mekar+Damai,+Kec.+Praya,+Kabupaten+Lombok+Tengah,+Nusa+Tenggara+Barat&z=15&output=embed"
+            class="w-full h-full pointer-events-none grayscale-[15%] contrast-110 brightness-[0.85]"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-primary-950/70 via-primary-900/55 to-primary-950/75"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-10 py-14" style="text-shadow: 0 1px 8px rgba(0,0,0,0.5);">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
 
             <div class="md:col-span-2">
@@ -34,11 +47,19 @@
             <div>
                 <h4 class="text-white font-semibold mb-4">Kontak</h4>
                 <ul class="space-y-2 text-sm text-primary-100/80">
-                    <li>Jl. Raya Mekar Damai No. 1</li>
-                    <li>Kec. Sukamakmur, Jawa Timur</li>
-                    <li>(0341) 555-0123</li>
+                    <li>87XJ+9C2, Dusun Alung</li>
+                    <li>Desa Mekar Damai, Kec. Aik Mual</li>
+                    <li>Kec. Praya, Kab. Lombok Tengah</li>
+                    <li>Nusa Tenggara Barat, 83511</li>
+                    <li>(0370) 555-0123</li>
                     <li>desa.mekardamai@gmail.com</li>
                 </ul>
+                <a href="https://www.google.com/maps?q=87XJ%2B9C2+Alung,+Desa+Mekar+Damai,+Kec.+Praya,+Kabupaten+Lombok+Tengah,+Nusa+Tenggara+Barat"
+                   target="_blank"
+                   class="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-primary-300 hover:text-white transition">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    Buka di Google Maps
+                </a>
             </div>
         </div>
 
