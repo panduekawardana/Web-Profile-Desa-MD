@@ -102,19 +102,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin.auth')->group(function () {
         Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-        Route::resource('berita', AdminBeritaController::class)->except('show');
-        Route::resource('pengumuman', AdminPengumumanController::class)->except('show');
-        Route::resource('agenda', AdminAgendaController::class)->except('show');
-        Route::resource('produk', AdminProdukController::class)->except('show');
+        Route::resource('berita', AdminBeritaController::class)->except('show')->parameters(['berita' => 'berita']);
+        Route::resource('pengumuman', AdminPengumumanController::class)->except('show')->parameters(['pengumuman' => 'pengumuman']);
+        Route::resource('agenda', AdminAgendaController::class)->except('show')->parameters(['agenda' => 'agenda']);
+        Route::resource('produk', AdminProdukController::class)->except('show')->parameters(['produk' => 'produk']);
 
         // Layanan Warga (surat & pengaduan masuk dari publik)
-        Route::resource('surat', AdminSuratController::class)->only(['index', 'edit', 'update', 'destroy']);
-        Route::resource('pengaduan', AdminPengaduanController::class)->only(['index', 'edit', 'update', 'destroy']);
+        Route::resource('surat', AdminSuratController::class)->only(['index', 'edit', 'update', 'destroy'])->parameters(['surat' => 'surat']);
+        Route::resource('pengaduan', AdminPengaduanController::class)->only(['index', 'edit', 'update', 'destroy'])->parameters(['pengaduan' => 'pengaduan']);
 
         // Dokumen Legal
-        Route::resource('perdes', AdminPeraturanDesaController::class)->except('show');
-        Route::resource('perkades', AdminPerkadesController::class)->except('show');
-        Route::resource('lpj', AdminLpjController::class)->except('show');
+        Route::resource('perdes', AdminPeraturanDesaController::class)->except('show')->parameters(['perdes' => 'perdes']);
+        Route::resource('perkades', AdminPerkadesController::class)->except('show')->parameters(['perkades' => 'perkades']);
+        Route::resource('lpj', AdminLpjController::class)->except('show')->parameters(['lpj' => 'lpj']);
 
         Route::get('/statistik', [AdminStatistikController::class, 'edit'])->name('statistik.edit');
         Route::put('/statistik', [AdminStatistikController::class, 'update'])->name('statistik.update');
