@@ -79,38 +79,84 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <a href="{{ route('profil.sejarah') }}" class="col-span-1 md:col-span-2 relative rounded-2xl overflow-hidden group h-72 md:h-full min-h-[280px]">
-                <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1400&auto=format&fit=crop"
-                     alt="Pariwisata Alam" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <a href="{{ route('profil.sejarah') }}" class="relative rounded-2xl overflow-hidden group h-80">
+                <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=800&auto=format&fit=crop"
+                     alt="Wisata Alam" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
                 <div class="absolute bottom-0 p-6">
                     <span class="text-xs font-semibold text-primary-200 bg-black/30 px-2 py-1 rounded">Pariwisata</span>
-                    <h3 class="text-white font-bold text-lg mt-2">Wisata Alam & Agrowisata Mekar Damai</h3>
+                    <h3 class="text-white font-bold text-lg mt-2 leading-snug">Wisata Alam & Agrowisata Mekar Damai</h3>
                 </div>
             </a>
 
-            <div class="grid grid-rows-2 gap-6">
-                <a href="{{ route('surat') }}" class="rounded-2xl bg-primary-50 border border-primary-100 p-6 flex flex-col justify-between hover:shadow-md transition">
-                    <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white mb-3">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7a2 2 0 012-2h6a2 2 0 012 2v10a2 2 0 01-2 2h-6a2 2 0 01-2-2z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7H5a2 2 0 00-2 2v8a2 2 0 002 2h4" /></svg>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-gray-900">Pusat UMKM Digital</h3>
-                        <p class="text-sm text-gray-500 mt-1">Mendukung lebih dari 50 pengrajin lokal untuk go-digital melalui marketplace terintegrasi desa.</p>
-                    </div>
-                </a>
-                <a href="{{ route('apbdes') }}" class="rounded-2xl bg-gray-900 text-white p-6 flex flex-col justify-between hover:shadow-md transition">
-                    <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01" /></svg>
-                    </div>
-                    <div>
-                        <h3 class="font-bold">Pertanian Modern & BUMDes</h3>
-                        <p class="text-sm text-white/70 mt-1">Sistem irigasi organik dan koperasi tani mendukung produktivitas hasil bumi desa.</p>
-                    </div>
-                </a>
+            <a href="{{ route('umkm') }}" class="relative rounded-2xl overflow-hidden group h-80">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&auto=format&fit=crop"
+                     alt="UMKM Digital" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+                <div class="absolute bottom-0 p-6">
+                    <span class="text-xs font-semibold text-primary-200 bg-black/30 px-2 py-1 rounded">Ekonomi</span>
+                    <h3 class="text-white font-bold text-lg mt-2 leading-snug">Pusat UMKM Digital</h3>
+                    <p class="text-white/80 text-sm mt-1">50+ pengrajin lokal go-digital</p>
+                </div>
+            </a>
+
+            <a href="{{ route('apbdes') }}" class="relative rounded-2xl overflow-hidden group h-80">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&auto=format&fit=crop"
+                     alt="Pertanian Modern" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+                <div class="absolute bottom-0 p-6">
+                    <span class="text-xs font-semibold text-primary-200 bg-black/30 px-2 py-1 rounded">Pertanian</span>
+                    <h3 class="text-white font-bold text-lg mt-2 leading-snug">Pertanian Modern & BUMDes</h3>
+                    <p class="text-white/80 text-sm mt-1">Irigasi organik & koperasi tani</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    {{-- ================= VIDEO PROFIL DESA ================= --}}
+    <section class="bg-primary-950 py-20">
+        <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
+            <span class="inline-block bg-primary-600/90 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                Kenali Kami Lebih Dekat
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold text-white">Video Profil Desa Mekar Damai</h2>
+            <p class="text-primary-200 mt-3 max-w-xl mx-auto text-sm md:text-base">
+                Saksikan perjalanan transformasi digital dan ragam potensi Desa Mekar Damai dalam video singkat berikut.
+            </p>
+
+            {{--
+                PENTING: ganti data-video-id di bawah dengan ID video YouTube profil desa kamu.
+                Cara ambil ID: dari link https://youtube.com/watch?v=XXXXXXXXXXX -> ID-nya adalah "XXXXXXXXXXX"
+                (kode di bawah ini masih placeholder kosong, video belum akan tampil sebelum diganti)
+            --}}
+            <div id="video-profil-desa"
+                 data-video-id="GANTI_DENGAN_ID_VIDEO_YOUTUBE"
+                 class="mt-10 relative rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600&auto=format&fit=crop"
+                     alt="Thumbnail Video Profil Desa" class="w-full h-full object-cover opacity-70">
+                <button type="button" onclick="playVideoProfilDesa()"
+                        class="absolute inset-0 flex items-center justify-center group cursor-pointer">
+                    <span class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 group-hover:bg-white flex items-center justify-center transition shadow-xl group-hover:scale-105">
+                        <svg class="w-7 h-7 md:w-8 md:h-8 text-primary-700 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    </span>
+                </button>
             </div>
         </div>
     </section>
+
+    <script>
+        function playVideoProfilDesa() {
+            const wrapper = document.getElementById('video-profil-desa');
+            const videoId = wrapper.dataset.videoId;
+
+            if (!videoId || videoId.startsWith('GANTI_')) {
+                alert('Video profil desa belum diatur.\n\nAdmin: buka file resources/views/home/index.blade.php, cari "GANTI_DENGAN_ID_VIDEO_YOUTUBE", ganti dengan ID video YouTube-mu.');
+                return;
+            }
+
+            wrapper.innerHTML = '<iframe class="w-full h-full" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" title="Video Profil Desa Mekar Damai" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+        }
+    </script>
 
     {{-- ================= KABAR & KEGIATAN ================= --}}
     <section class="bg-white border-t border-gray-100">
