@@ -114,32 +114,70 @@
     </section>
 
     {{-- ================= VIDEO PROFIL DESA ================= --}}
-    <section class="bg-primary-950 py-20">
-        <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center">
-            <span class="inline-block bg-primary-600/90 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                Kenali Kami Lebih Dekat
-            </span>
-            <h2 class="text-2xl md:text-3xl font-bold text-white">Video Profil Desa Mekar Damai</h2>
-            <p class="text-primary-200 mt-3 max-w-xl mx-auto text-sm md:text-base">
-                Saksikan perjalanan transformasi digital dan ragam potensi Desa Mekar Damai dalam video singkat berikut.
-            </p>
+    <section class="relative bg-primary-950 overflow-hidden">
+        {{-- Aksen bentuk diagonal --}}
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-900 to-primary-950"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-primary-700/20 -skew-x-12 origin-top-right"></div>
+        <div class="absolute -top-32 -right-32 w-96 h-96 bg-primary-400/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-32 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle, white 1.5px, transparent 1.5px); background-size: 30px 30px;"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">Video Profil Desa Kami</h2>
+                    <p class="text-primary-200 mt-2 max-w-xl text-sm md:text-base">
+                        Saksikan perjalanan transformasi digital dan ragam potensi Desa Mekar Damai
+                        dalam video singkat berikut.
+                    </p>
+                </div>
+            </div>
 
             {{--
                 PENTING: ganti data-video-id di bawah dengan ID video YouTube profil desa kamu.
                 Cara ambil ID: dari link https://youtube.com/watch?v=XXXXXXXXXXX -> ID-nya adalah "XXXXXXXXXXX"
                 (kode di bawah ini masih placeholder kosong, video belum akan tampil sebelum diganti)
             --}}
-            <div id="video-profil-desa"
-                 data-video-id="GANTI_DENGAN_ID_VIDEO_YOUTUBE"
-                 class="mt-10 relative rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black">
-                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600&auto=format&fit=crop"
-                     alt="Thumbnail Video Profil Desa" class="w-full h-full object-cover opacity-70">
-                <button type="button" onclick="playVideoProfilDesa()"
-                        class="absolute inset-0 flex items-center justify-center group cursor-pointer">
-                    <span class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 group-hover:bg-white flex items-center justify-center transition shadow-xl group-hover:scale-105">
-                        <svg class="w-7 h-7 md:w-8 md:h-8 text-primary-700 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                    </span>
-                </button>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <div id="video-profil-desa"
+                     data-video-id="GANTI_DENGAN_ID_VIDEO_YOUTUBE"
+                     class="col-span-1 md:col-span-2 relative rounded-2xl overflow-hidden group h-72 md:h-full min-h-[280px] bg-black">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1400&auto=format&fit=crop"
+                         alt="Thumbnail Video Profil Desa" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10"></div>
+                    <button type="button" onclick="playVideoProfilDesa()"
+                            class="absolute inset-0 flex items-center justify-center cursor-pointer">
+                        <span class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 hover:bg-white flex items-center justify-center transition shadow-xl hover:scale-110 duration-300">
+                            <svg class="w-7 h-7 md:w-8 md:h-8 text-primary-700 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                        </span>
+                    </button>
+                    <div class="absolute bottom-0 p-6 pointer-events-none">
+                        <span class="text-xs font-semibold text-primary-200 bg-black/30 px-2 py-1 rounded">Profil Desa</span>
+                        <h3 class="text-white font-bold text-lg mt-2">Video Profil Desa Mekar Damai</h3>
+                    </div>
+                </div>
+
+                <div class="grid grid-rows-2 gap-6">
+                    <div class="rounded-2xl bg-primary-50 border border-primary-100 p-6 flex flex-col justify-between">
+                        <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center text-white mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.55-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.45.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Kenali Kami Lebih Dekat</h3>
+                            <p class="text-sm text-gray-500 mt-1">Merangkum perjalanan transformasi digital dan ragam potensi wisata, UMKM, hingga pertanian desa.</p>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl bg-gray-900 text-white p-6 flex flex-col justify-between">
+                        <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-8.13a4 4 0 11-8 0 4 4 0 018 0zm6 3a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Cerita dari Warga</h3>
+                            <p class="text-sm text-white/70 mt-1">Dengar langsung cerita warga dan perangkat desa tentang manfaat nyata pelayanan digital.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

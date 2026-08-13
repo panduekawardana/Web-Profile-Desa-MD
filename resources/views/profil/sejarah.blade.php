@@ -46,6 +46,31 @@
             </div>
         </div>
 
+        {{-- Data Singkat Desa --}}
+        <div class="mt-16 bg-primary-50 rounded-2xl p-8 md:p-10">
+            <h3 class="text-xl font-bold text-primary-900 mb-1">Data Singkat Desa</h3>
+            <p class="text-primary-700/70 text-sm mb-8">
+                Berdasarkan Daftar Isian Potensi Desa dan Kelurahan, Bulan 2 Tahun 2026.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+                @foreach([
+                    ['label' => 'Jumlah Penduduk', 'value' => '7.998 Jiwa'],
+                    ['label' => 'Kepala Keluarga', 'value' => '2.610 KK'],
+                    ['label' => 'Luas Wilayah', 'value' => '382,55 Ha'],
+                    ['label' => 'Jumlah Dusun', 'value' => '15 Dusun'],
+                    ['label' => 'Mayoritas Agama', 'value' => 'Islam (100%)'],
+                    ['label' => 'Mayoritas Etnis', 'value' => 'Sasak'],
+                    ['label' => 'Kepadatan Penduduk', 'value' => '2.090/km&sup2;'],
+                    ['label' => 'Ketinggian Wilayah', 'value' => '250 mdpl'],
+                ] as $d)
+                    <div class="bg-white rounded-xl p-4">
+                        <p class="text-xs text-gray-400 font-semibold">{{ $d['label'] }}</p>
+                        <p class="text-lg font-bold text-gray-900 mt-1">{!! $d['value'] !!}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
         {{-- Timeline --}}
         <div class="mt-20">
             <h3 class="text-xl font-bold text-gray-900 mb-8">Tonggak Sejarah</h3>

@@ -18,25 +18,33 @@
         {{-- Kepala Desa highlight card --}}
         <div class="flex items-center gap-4 bg-white border border-gray-100 rounded-2xl p-5 shadow-sm max-w-md mb-14">
             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200&auto=format&fit=crop"
-                 alt="Ir. H. Ahmad Fauzi" class="w-14 h-14 rounded-full object-cover">
+                 alt="Muhamad Yani, S.AP" class="w-14 h-14 rounded-full object-cover">
             <div>
-                <p class="font-bold text-gray-900">Ir. H. Ahmad Fauzi</p>
-                <p class="text-xs text-gray-500">Kepala Desa Mekar Damai (2021 &ndash; 2027)</p>
+                <p class="font-bold text-gray-900">Muhamad Yani, S.AP</p>
+                <p class="text-xs text-gray-500">Kepala Desa Mekar Damai</p>
             </div>
         </div>
 
         <div class="bg-primary-50 rounded-2xl p-8 md:p-10">
-            <h2 class="text-xl md:text-2xl font-bold text-primary-900">Struktur Perangkat Desa</h2>
-            <p class="text-primary-700/80 text-sm mt-2 max-w-2xl">
-                Sinergi antar bidang untuk mewujudkan tata kelola desa yang efektif, efisien, dan berpihak pada warga.
-            </p>
+            <div class="flex flex-wrap items-end justify-between gap-4">
+                <div>
+                    <h2 class="text-xl md:text-2xl font-bold text-primary-900">Struktur Perangkat Desa</h2>
+                    <p class="text-primary-700/80 text-sm mt-2 max-w-2xl">
+                        Sinergi antar bidang untuk mewujudkan tata kelola desa yang efektif, efisien, dan berpihak pada warga.
+                    </p>
+                </div>
+                <div class="text-right">
+                    <p class="text-2xl font-bold text-primary-900">23 Orang</p>
+                    <p class="text-xs text-primary-600">Total perangkat & staf desa</p>
+                </div>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
                 @foreach([
-                    ['icon' => 'doc', 'title' => 'Sekretariat', 'desc' => 'Pusat administrasi, pengarsipan, dan koordinasi antar unit kerja desa.', 'staff' => [['role' => 'Sekretaris Desa', 'name' => 'Siti Aminah, S.E.'], ['role' => 'Kaur Keuangan', 'name' => 'Budi Santoso']]],
-                    ['icon' => 'tools', 'title' => 'Pembangunan', 'desc' => 'Mengelola infrastruktur fisik dan pemberdayaan masyarakat desa.', 'staff' => [['role' => 'Kasi Pembangunan', 'name' => 'Dedi Irawan'], ['role' => 'Pendamping Desa', 'name' => 'Lina Marlina']]],
-                    ['icon' => 'shield', 'title' => 'Pemerintahan', 'desc' => 'Menangani administrasi kependudukan dan ketertiban wilayah.', 'staff' => [['role' => 'Kasi Pemerintahan', 'name' => 'Agus Prasetyo'], ['role' => 'Staf Kependudukan', 'name' => 'Nur Hidayah']]],
-                    ['icon' => 'users', 'title' => 'Kesejahteraan Rakyat', 'desc' => 'Mengoordinasikan program sosial, kesehatan, dan pendidikan warga.', 'staff' => [['role' => 'Kasi Kesra', 'name' => 'Wahyu Setiawan'], ['role' => 'Staf Posyandu', 'name' => 'Ratna Sari']]],
+                    ['icon' => 'doc', 'title' => 'Sekretariat', 'desc' => 'Pusat administrasi, pengarsipan, dan koordinasi antar unit kerja desa.', 'staff' => [['role' => 'Sekretaris Desa', 'name' => 'S1 · Aktif'], ['role' => 'Kaur Keuangan', 'name' => 'S1 · Aktif']]],
+                    ['icon' => 'tools', 'title' => 'Pembangunan', 'desc' => 'Mengelola infrastruktur fisik dan pemberdayaan masyarakat desa.', 'staff' => [['role' => 'Kasi Pembangunan', 'name' => 'SLTA · Aktif'], ['role' => 'Kasi Pemberdayaan Masyarakat', 'name' => 'SLTA · Aktif']]],
+                    ['icon' => 'shield', 'title' => 'Pemerintahan', 'desc' => 'Menangani administrasi kependudukan dan ketertiban wilayah.', 'staff' => [['role' => 'Kasi Pemerintahan', 'name' => 'S1 · Aktif'], ['role' => 'Kaur Umum', 'name' => 'SLTA · Aktif']]],
+                    ['icon' => 'users', 'title' => 'Kesejahteraan Rakyat', 'desc' => 'Mengoordinasikan program sosial, kesehatan, dan pendidikan warga.', 'staff' => [['role' => 'Kasi Kesejahteraan Rakyat', 'name' => 'SLTA · Aktif'], ['role' => 'Jumlah Staf', 'name' => '5 Orang']]],
                 ] as $bidang)
                     <div class="bg-white rounded-2xl p-6 shadow-sm">
                         <div class="w-10 h-10 rounded-lg bg-primary-100 text-primary-700 flex items-center justify-center mb-4">

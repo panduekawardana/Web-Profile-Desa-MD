@@ -29,19 +29,56 @@
             <div class="space-y-4">
                 <div class="bg-primary-50 rounded-xl p-5">
                     <p class="text-xs text-primary-700 font-semibold">Total Luas Wilayah</p>
-                    <p class="text-2xl font-bold text-primary-900">1,240 Ha</p>
+                    <p class="text-2xl font-bold text-primary-900">382,55 Ha</p>
                 </div>
                 <div class="bg-gray-50 rounded-xl p-5">
                     <p class="text-xs text-gray-500 font-semibold">Jumlah Dusun</p>
                     <p class="text-2xl font-bold text-gray-900">15 Dusun</p>
                 </div>
                 <div class="bg-gray-50 rounded-xl p-5">
-                    <p class="text-xs text-gray-500 font-semibold">Lahan Produktif</p>
-                    <p class="text-2xl font-bold text-gray-900">72%</p>
+                    <p class="text-xs text-gray-500 font-semibold">Lahan Pertanian</p>
+                    <p class="text-2xl font-bold text-gray-900">~70%</p>
                 </div>
                 <a href="#" class="block text-center bg-primary-700 hover:bg-primary-800 text-white text-sm font-semibold py-3 rounded-xl transition">
                     Unduh Peta Administratif (PDF)
                 </a>
+            </div>
+        </div>
+
+        {{-- Batas Wilayah --}}
+        <div class="mt-14">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Batas Wilayah</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                @foreach([
+                    ['arah' => 'Utara', 'desa' => 'Barabali & Pagutan', 'kec' => 'Kec. Batukliang'],
+                    ['arah' => 'Selatan', 'desa' => 'Jago', 'kec' => 'Kec. Praya Barat'],
+                    ['arah' => 'Timur', 'desa' => 'Aikmual & Montong Terep', 'kec' => 'Kec. Praya Timur'],
+                    ['arah' => 'Barat', 'desa' => 'Jago & Pagutan', 'kec' => 'Kec. Jonggat'],
+                ] as $batas)
+                    <div class="border border-gray-100 rounded-xl p-4">
+                        <span class="text-xs font-bold text-primary-700 uppercase tracking-wide">{{ $batas['arah'] }}</span>
+                        <p class="font-semibold text-gray-900 text-sm mt-1">{{ $batas['desa'] }}</p>
+                        <p class="text-xs text-gray-400 mt-0.5">{{ $batas['kec'] }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        {{-- Orbitasi --}}
+        <div class="mt-10">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Jarak Tempuh (Orbitasi)</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                @foreach([
+                    ['label' => 'Ibu Kota Kecamatan', 'jarak' => '7 Km', 'waktu' => '± 15 menit'],
+                    ['label' => 'Ibu Kota Kabupaten', 'jarak' => '7 Km', 'waktu' => '± 30 menit'],
+                    ['label' => 'Ibu Kota Provinsi', 'jarak' => '20 Km', 'waktu' => '± 1 jam'],
+                ] as $o)
+                    <div class="bg-gray-50 rounded-xl p-5 text-center">
+                        <p class="text-xs text-gray-500 font-semibold">{{ $o['label'] }}</p>
+                        <p class="text-xl font-bold text-gray-900 mt-1">{{ $o['jarak'] }}</p>
+                        <p class="text-xs text-gray-400 mt-0.5">{{ $o['waktu'] }} berkendara</p>
+                    </div>
+                @endforeach
             </div>
         </div>
 
