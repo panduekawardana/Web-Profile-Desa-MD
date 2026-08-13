@@ -113,6 +113,120 @@
         </div>
     </section>
 
+    {{-- ================= STATISTIK KEPENDUDUKAN ================= --}}
+    <section class="bg-gray-50 border-t border-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary-50 text-primary-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                    Data Resmi Desa
+                </span>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Statistik Kependudukan</h2>
+                <p class="text-gray-500 mt-2 max-w-xl mx-auto text-sm md:text-base">
+                    Berdasarkan Daftar Isian Potensi Desa dan Kelurahan, Bulan Februari 2026.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center mb-12">
+
+                {{-- Donut chart Laki-laki vs Perempuan --}}
+                <div class="lg:col-span-2 flex flex-col items-center">
+                    <div class="relative w-56 h-56 rounded-full shrink-0"
+                         style="background: conic-gradient(#24572c 0% 52.1%, #a7d1ab 52.1% 100%);">
+                        <div class="absolute inset-5 bg-gray-50 rounded-full flex flex-col items-center justify-center shadow-inner">
+                            <span class="text-2xl md:text-3xl font-bold text-gray-900">7.998</span>
+                            <span class="text-xs text-gray-400 mt-0.5">Jiwa</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 mt-6">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-primary-800"></span>
+                            <span class="text-sm text-gray-600">Laki-laki <span class="font-semibold text-gray-900">52,1%</span></span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full" style="background:#a7d1ab"></span>
+                            <span class="text-sm text-gray-600">Perempuan <span class="font-semibold text-gray-900">47,9%</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Stat cards --}}
+                <div class="lg:col-span-3 grid grid-cols-2 gap-4">
+                    @foreach([
+                        ['label' => 'Laki-laki', 'value' => '4.165', 'suffix' => 'Jiwa', 'color' => 'text-primary-800'],
+                        ['label' => 'Perempuan', 'value' => '3.833', 'suffix' => 'Jiwa', 'color' => 'text-primary-800'],
+                        ['label' => 'Kepala Keluarga', 'value' => '2.610', 'suffix' => 'KK', 'color' => 'text-gray-900'],
+                        ['label' => 'Kepadatan Penduduk', 'value' => '2.090', 'suffix' => 'jiwa/km&sup2;', 'color' => 'text-gray-900'],
+                    ] as $s)
+                        <div class="bg-white border border-gray-100 rounded-xl p-5">
+                            <p class="text-xs text-gray-400 font-semibold">{{ $s['label'] }}</p>
+                            <p class="text-xl font-bold {{ $s['color'] }} mt-1">
+                                {{ $s['value'] }} <span class="text-xs font-medium text-gray-400">{!! $s['suffix'] !!}</span>
+                            </p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+
+                {{-- Bar chart mata pencaharian --}}
+                <div class="lg:col-span-3 bg-white border border-gray-100 rounded-2xl p-6 md:p-8">
+                    <h3 class="font-bold text-gray-900 mb-1">Mata Pencaharian Utama</h3>
+                    <p class="text-xs text-gray-400 mb-6">5 jenis pekerjaan dengan jumlah warga terbanyak</p>
+                    <div class="space-y-4">
+                        @foreach([
+                            ['label' => 'Petani', 'jumlah' => 201, 'persen' => 100],
+                            ['label' => 'Karyawan Honorer', 'jumlah' => 45, 'persen' => 22],
+                            ['label' => 'PNS / PPPK', 'jumlah' => 41, 'persen' => 20],
+                            ['label' => 'Peternak', 'jumlah' => 30, 'persen' => 15],
+                            ['label' => 'Tukang Jahit', 'jumlah' => 30, 'persen' => 15],
+                        ] as $mp)
+                            <div>
+                                <div class="flex justify-between text-sm mb-1.5">
+                                    <span class="text-gray-600">{{ $mp['label'] }}</span>
+                                    <span class="font-semibold text-gray-900">{{ $mp['jumlah'] }} orang</span>
+                                </div>
+                                <div class="w-full h-2 bg-gray-100 rounded-full">
+                                    <div class="h-2 bg-primary-600 rounded-full" style="width: {{ $mp['persen'] }}%"></div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                {{-- Agama & Etnis --}}
+                <div class="lg:col-span-2 grid grid-rows-2 gap-6">
+                    <div class="bg-primary-800 text-white rounded-2xl p-6 flex items-center gap-5">
+                        <div class="relative w-20 h-20 rounded-full shrink-0" style="background: conic-gradient(white 0% 100%);">
+                            <div class="absolute inset-2 bg-primary-800 rounded-full flex items-center justify-center">
+                                <span class="text-sm font-bold">100%</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-primary-200">Mayoritas Agama</p>
+                            <p class="font-bold text-lg">Islam</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 text-white rounded-2xl p-6 flex items-center gap-5">
+                        <div class="relative w-20 h-20 rounded-full shrink-0" style="background: conic-gradient(white 0% 100%);">
+                            <div class="absolute inset-2 bg-gray-900 rounded-full flex items-center justify-center">
+                                <span class="text-sm font-bold">100%</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white/60">Mayoritas Etnis</p>
+                            <p class="font-bold text-lg">Sasak</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-xs text-gray-400 mt-8">
+                Sumber: Daftar Isian Potensi Desa dan Kelurahan, Desa Mekar Damai, Kec. Praya, Kab. Lombok Tengah.
+            </p>
+        </div>
+    </section>
+
     {{-- ================= VIDEO PROFIL DESA ================= --}}
     <section class="relative bg-primary-950 overflow-hidden">
         {{-- Aksen bentuk diagonal --}}

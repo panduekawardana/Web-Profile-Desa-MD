@@ -35,12 +35,12 @@
         {{-- Kaur & Kasi row --}}
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             @foreach([
-                'Kepala Urusan Umum',
-                'Kepala Urusan Keuangan',
-                'Kepala Urusan Pemerintahan',
-                'Kepala Urusan Pembangunan',
-                'Kepala Urusan Pemberdayaan Masyarakat',
-                'Kepala Urusan Kesejahteraan Rakyat',
+                'Kaur Umum',
+                'Kaur Keuangan',
+                'Kasi Pemerintahan',
+                'Kasi Pembangunan',
+                'Kasi Pemberdayaan Masyarakat',
+                'Kasi Kesejahteraan Rakyat',
             ] as $jabatan)
                 <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-center">
                     <p class="font-semibold text-gray-900 text-sm">{{ $jabatan }}</p>
@@ -76,42 +76,40 @@
         <div class="max-w-5xl mx-auto px-6 lg:px-10 py-16">
             <div class="text-center mb-10">
                 <span class="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
-                    Mitra Pemerintah Desa
+                    Mitra Pemerintah Desa &middot; Periode 2023&ndash;2029
                 </span>
                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Badan Permusyawaratan Desa (BPD)</h2>
                 <p class="text-gray-500 mt-2 max-w-2xl mx-auto text-sm md:text-base">
-                    BPD berjumlah 9 orang, menjalankan fungsi pemerintahan bersama Kepala Desa serta
-                    menampung dan menyalurkan aspirasi masyarakat.
+                    BPD berjumlah 9 orang, dilantik berdasarkan SK Nomor 305 Tahun 2023, menjalankan fungsi
+                    pemerintahan bersama Kepala Desa serta menampung dan menyalurkan aspirasi masyarakat.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                <div class="bg-white border border-primary-100 rounded-xl p-4 text-center">
-                    <p class="font-semibold text-gray-900 text-sm">Ketua</p>
-                    <p class="text-xs text-gray-500 mt-1">S1</p>
-                </div>
-                <div class="bg-white border border-primary-100 rounded-xl p-4 text-center">
-                    <p class="font-semibold text-gray-900 text-sm">Wakil Ketua</p>
-                    <p class="text-xs text-gray-500 mt-1">S1</p>
-                </div>
-                <div class="bg-white border border-primary-100 rounded-xl p-4 text-center">
-                    <p class="font-semibold text-gray-900 text-sm">Sekretaris</p>
-                    <p class="text-xs text-gray-500 mt-1">S1</p>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 @foreach([
-                    ['name' => 'Rusnan, S.H.', 'edu' => 'S1'],
-                    ['name' => 'Usman Paizal', 'edu' => 'SLTA'],
-                    ['name' => 'Mahsun', 'edu' => 'SLTA'],
-                    ['name' => 'Irham, S.Pd', 'edu' => 'S1'],
-                    ['name' => 'H. Marzuki, S.Pd', 'edu' => 'S1'],
-                    ['name' => 'Maemunah, S.Pd', 'edu' => 'S1'],
+                    ['name' => 'Khaeruman Jaelani, S.Pd', 'ttl' => 'Bebie, 10 Des 1969', 'edu' => 'S1'],
+                    ['name' => 'Masud Fathi, S.Pd', 'ttl' => 'Rau, 31 Des 1991', 'edu' => 'S1'],
+                    ['name' => 'Sahlan, S.Pd', 'ttl' => 'Bebie Daye, 31 Des 1984', 'edu' => 'S1'],
+                    ['name' => 'Rusnan, S.H.', 'ttl' => 'Lendang Batah, 31 Des 1964', 'edu' => 'S1'],
+                    ['name' => 'H. Marzuki, S.Pd', 'ttl' => 'Alung, 31 Des 1971', 'edu' => 'S1'],
+                    ['name' => 'Muhamad Irham, S.Pd', 'ttl' => 'Manggong, 14 Agu 1989', 'edu' => 'S1'],
+                    ['name' => 'Mahsun', 'ttl' => 'Aik Mual, 4 Sep 1976', 'edu' => 'SMA'],
+                    ['name' => 'Muhammad', 'ttl' => 'Lombok Tengah, 31 Des 1968', 'edu' => 'SMA'],
+                    ['name' => 'Maemunah, S.Pd', 'ttl' => 'Aikmual, 30 Des 1984', 'edu' => 'S1'],
                 ] as $anggota)
-                    <div class="bg-white border border-gray-100 rounded-xl p-4 text-center">
+                    <div class="bg-white border border-gray-100 rounded-xl p-4">
                         <p class="font-semibold text-gray-900 text-sm">{{ $anggota['name'] }}</p>
-                        <p class="text-xs text-gray-500 mt-1">Anggota &middot; {{ $anggota['edu'] }}</p>
+                        <p class="text-xs text-gray-500 mt-1">{{ $anggota['ttl'] }}</p>
+                        <span class="inline-block mt-2 text-[11px] font-semibold text-primary-700 bg-primary-50 px-2 py-0.5 rounded-full">
+                            {{ $anggota['edu'] }}
+                        </span>
                     </div>
                 @endforeach
             </div>
+
+            <p class="text-center text-xs text-gray-400 mt-8">
+                Sumber: Daftar Nama Anggota BPD Desa Mekar Damai, ditetapkan di Mekar Damai, 1 Juli 2024.
+            </p>
         </div>
     </section>
 
