@@ -35,12 +35,12 @@
         {{-- Kaur & Kasi row --}}
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             @foreach([
-                'Kaur Umum',
-                'Kaur Keuangan',
-                'Kasi Pemerintahan',
-                'Kasi Pembangunan',
-                'Kasi Pemberdayaan Masyarakat',
-                'Kasi Kesejahteraan Rakyat',
+                'Kepala Urusan Umum',
+                'Kepala Urusan Keuangan',
+                'Kepala Urusan Pemerintahan',
+                'Kepala Urusan Pembangunan',
+                'Kepala Urusan Pemberdayaan Masyarakat',
+                'Kepala Urusan Kesejahteraan Rakyat',
             ] as $jabatan)
                 <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-center">
                     <p class="font-semibold text-gray-900 text-sm">{{ $jabatan }}</p>
