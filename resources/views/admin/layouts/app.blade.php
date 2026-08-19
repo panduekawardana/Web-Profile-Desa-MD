@@ -89,6 +89,14 @@
                 Produk UMKM
             </a>
 
+            <p class="px-3 pt-5 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-primary-400/80">Wilayah</p>
+
+            <a href="{{ route('admin.dusun.index') }}"
+               class="flex items-center gap-3 px-3 py-2.5 rounded-xl transition {{ request()->routeIs('admin.dusun.*') ? 'bg-white text-primary-800 font-semibold shadow-lg shadow-black/20' : 'text-primary-100 hover:bg-white/10' }}">
+                <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                Data Dusun
+            </a>
+
             <p class="px-3 pt-5 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-primary-400/80">Dokumen Legal</p>
 
             <a href="{{ route('admin.perdes.index') }}"

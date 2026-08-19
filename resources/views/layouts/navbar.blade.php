@@ -59,19 +59,9 @@
                     </div>
                 </div>
 
-                <div class="relative group">
-                    <button class="flex items-center gap-1 text-gray-600 hover:text-primary-700 {{ request()->routeIs(['surat','pengaduan','ktp','alur']) ? 'text-primary-700 font-semibold' : '' }}">
-                        Layanan Publik
-                    </button>
-                    <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
-                        <div class="bg-white rounded-xl shadow-lg border border-gray-100 py-2 w-56">
-                            <a href="{{ route('surat') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">Surat Pengantar</a>
-                            <a href="{{ route('pengaduan') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">Pengaduan</a>
-                            <a href="{{ route('ktp') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">KTP / KK / Akta</a>
-                            <a href="{{ route('alur') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700">Alur Layanan</a>
-                        </div>
-                    </div>
-                </div>
+                <a href="{{ route('layanan.index') }}" class="text-gray-600 hover:text-primary-700 {{ request()->routeIs('layanan.index') ? 'text-primary-700 font-semibold' : '' }}">
+                    Layanan Desa
+                </a>
 
                 <div class="relative group">
                     <button class="flex items-center gap-1 text-gray-600 hover:text-primary-700 {{ request()->routeIs(['berita','pengumuman','agenda']) ? 'text-primary-700 font-semibold' : '' }}">
@@ -88,7 +78,7 @@
             </nav>
 
             {{-- CTA --}}
-            <a href="{{ route('pengaduan') }}"
+            <a href="{{ route('home') }}#kontak"
                class="hidden lg:inline-flex items-center bg-primary-700 hover:bg-primary-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition">
                 Kontak Kami
             </a>
@@ -116,16 +106,12 @@
             <a href="{{ route('perkades') }}" class="block py-2 pl-2 text-gray-700">Peraturan Kepala Desa</a>
             <a href="{{ route('apbdes') }}" class="block py-2 pl-2 text-gray-700">APBDes</a>
             <a href="{{ route('lpj') }}" class="block py-2 pl-2 text-gray-700">LPPD/LPJ</a>
-            <p class="pt-2 text-xs uppercase tracking-wide text-gray-400">Layanan Publik</p>
-            <a href="{{ route('surat') }}" class="block py-2 pl-2 text-gray-700">Surat Pengantar</a>
-            <a href="{{ route('pengaduan') }}" class="block py-2 pl-2 text-gray-700">Pengaduan</a>
-            <a href="{{ route('ktp') }}" class="block py-2 pl-2 text-gray-700">KTP / KK / Akta</a>
-            <a href="{{ route('alur') }}" class="block py-2 pl-2 text-gray-700">Alur Layanan</a>
+            <a href="{{ route('layanan.index') }}" class="block py-2 text-gray-700 font-semibold">Layanan Desa</a>
             <p class="pt-2 text-xs uppercase tracking-wide text-gray-400">Informasi</p>
             <a href="{{ route('berita') }}" class="block py-2 pl-2 text-gray-700">Berita</a>
             <a href="{{ route('pengumuman') }}" class="block py-2 pl-2 text-gray-700">Pengumuman</a>
             <a href="{{ route('agenda') }}" class="block py-2 pl-2 text-gray-700">Agenda</a>
-            <a href="{{ route('pengaduan') }}" class="block mt-3 text-center bg-primary-700 text-white py-2.5 rounded-lg">Kontak Kami</a>
+            <a href="{{ route('home') }}#kontak" class="block mt-3 text-center bg-primary-700 text-white py-2.5 rounded-lg">Kontak Kami</a>
         </div>
     </div>
 </header>

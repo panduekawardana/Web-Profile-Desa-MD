@@ -27,9 +27,9 @@
                         yang lebih cepat, tepat, dan terbuka bagi seluruh warga Mekar Damai.
                     </p>
                     <div class="flex flex-wrap gap-3 mt-7">
-                        <a href="{{ route('surat') }}"
+                        <a href="{{ route('home') }}#kontak"
                            class="bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold px-6 py-3 rounded-lg transition">
-                            Ajukan Layanan Online
+                            Hubungi Kami
                         </a>
                         <a href="{{ route('profil.sejarah') }}"
                            class="bg-gray-900/70 hover:bg-gray-900 text-white text-sm font-semibold px-6 py-3 rounded-lg transition">

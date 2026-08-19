@@ -1,4 +1,4 @@
-<footer class="relative text-primary-100 mt-24 overflow-hidden">
+<footer id="kontak" class="relative text-primary-100 mt-24 overflow-hidden">
 
     {{-- Peta sebagai background --}}
     <div class="absolute inset-0">
@@ -39,7 +39,7 @@
                 <ul class="space-y-2 text-sm text-primary-100/80">
                     <li><a href="{{ route('profil.sejarah') }}" class="hover:text-white">Profil Desa</a></li>
                     <li><a href="{{ route('apbdes') }}" class="hover:text-white">APBDes</a></li>
-                    <li><a href="{{ route('surat') }}" class="hover:text-white">Layanan Publik</a></li>
+                    <li><a href="{{ route('home') }}#kontak" class="hover:text-white">Layanan Publik</a></li>
                     <li><a href="{{ route('berita') }}" class="hover:text-white">Berita & Kegiatan</a></li>
                 </ul>
             </div>

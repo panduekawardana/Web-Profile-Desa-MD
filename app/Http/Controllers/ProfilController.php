@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dusun;
+
 class ProfilController extends Controller
 {
     public function sejarah()
@@ -26,6 +28,8 @@ class ProfilController extends Controller
 
     public function peta()
     {
-        return view('profil.peta');
+        $dusuns = Dusun::orderBy('urutan')->get();
+
+        return view('profil.peta', compact('dusuns'));
     }
 }
